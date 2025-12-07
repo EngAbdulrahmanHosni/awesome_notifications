@@ -759,10 +759,12 @@ void main() {
       Map<String, dynamic> actionData = {}; // Fill with actual data
 
       bool actionHandlerCalled = false;
-      awesomeNotifications.actionHandler =
-          (ReceivedAction receivedAction) async {
-        actionHandlerCalled = true;
-      };
+      for( var item in awesomeNotifications.actionHandler){
+        item= (ReceivedAction receivedAction) async {
+          actionHandlerCalled = true;
+        };
+      }
+
 
       await awesomeNotifications
           .handleMethod(MethodCall(EVENT_DEFAULT_ACTION, actionData));

@@ -316,7 +316,7 @@ class NotificationsController {
 
   /// Use this method to detect if the user dismissed a notification
   @pragma("vm:entry-point")
-  static Future<void> onDismissActionReceivedMethod(
+  static Future<ReceivedAction?> onDismissActionReceivedMethod(
       ReceivedAction receivedAction) async {
     var message =
         'Notification dismissed on ${receivedAction.dismissedLifeCycle?.name}';
@@ -329,7 +329,7 @@ class NotificationsController {
 
   /// Use this method to detect when the user taps on a notification or action button
   @pragma("vm:entry-point")
-  static Future<void> onActionReceivedMethod(
+  static Future<ReceivedAction?> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
     if (receivePort != null) {
       await onActionReceivedMethodImpl(receivedAction);

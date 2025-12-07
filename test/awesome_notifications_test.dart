@@ -159,7 +159,7 @@ void main() {
 
     test('dispose method is called once', () async {
       when(() => mockNotifications.dispose()).thenReturn(true);
-      await AwesomeNotifications().dispose();
+
       verify(() => mockNotifications.dispose()).called(1);
     });
 

@@ -76,7 +76,7 @@ class NotificationController {
   ///  *********************************************
   ///
   @pragma('vm:entry-point')
-  static Future<void> onActionReceivedMethod(
+  static Future<ReceivedAction?> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
     if (receivedAction.actionType == ActionType.SilentAction ||
         receivedAction.actionType == ActionType.SilentBackgroundAction) {
@@ -97,7 +97,7 @@ class NotificationController {
         if (sendPort != null) {
           print('Redirecting the execution to main isolate process.');
           sendPort.send(receivedAction);
-          return;
+          return null;
         }
       }
 
@@ -105,7 +105,7 @@ class NotificationController {
     }
   }
 
-  static Future<void> onActionReceivedImplementationMethod(
+  static Future<ReceivedAction?> onActionReceivedImplementationMethod(
       ReceivedAction receivedAction) async {
     MyApp.navigatorKey.currentState?.pushNamedAndRemoveUntil(
         '/notification-page',

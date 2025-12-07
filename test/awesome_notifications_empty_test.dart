@@ -184,7 +184,8 @@ void main() {
 
     test('setListeners method', () async {
       bool result = await notifications.setListeners(
-        onActionReceivedMethod: (ReceivedAction action) async {},
+        onActionReceivedMethod: (ReceivedAction action) async {
+        },
       );
       expect(result, true);
     });
