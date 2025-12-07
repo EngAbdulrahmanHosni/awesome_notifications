@@ -499,6 +499,7 @@ class MethodChannelAwesomeNotifications extends AwesomeNotificationsPlatform {
       NOTIFICATION_PERMISSIONS: permissionList
     });
 
+
     return _listStringToListPermission(permissionList);
   }
 
